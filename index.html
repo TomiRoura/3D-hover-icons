@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>3D Icon Hover Effects</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <ul class="sci">
+            <li style="--cir:#ff0000;"><a href=https://www.youtube.com>
+                <i class="fa-brands fa-youtube"></i>
+            </a></li>
+            <li style="--cir:#333333;"><a href=https://www.x.com>
+                <i class="fa-brands fa-x-twitter"></i>
+            </a></li>
+            <li style="--cir:#00a783;"><a href=https://www.whatsapp.com>
+                <i class="fa-brands fa-whatsapp"></i>
+            </a></li>
+        </ul>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            VanillaTilt.init(document.querySelectorAll(".sci li a"), {
+		max: 30,
+		speed: 400,
+        glare: true
+	});
+            let list = document.querySelectorAll('.sci li')
+            let bg = document.querySelector('body');
+            list.forEach(element => {
+                element.addEventListener("mouseenter", function(event){
+                    let color = event.target.style.getPropertyValue('--cir');
+                    bg.style.backgroundColor = color;
+                })
+                element.addEventListener("mouseleave", function(event){
+                    bg.style.backgroundColor = "#ffffff";
+                })
+            })
+        </script>
+    </body>
+</html>
